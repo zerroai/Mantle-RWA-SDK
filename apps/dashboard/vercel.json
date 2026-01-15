@@ -1,4 +1,0 @@
-{
-    "installCommand": "npm install --legacy-peer-deps && npm install --no-save lightningcss-linux-x64-gnu lightningcss-linux-x64-musl || true",
-    "buildCommand": "npm run build"
-}
