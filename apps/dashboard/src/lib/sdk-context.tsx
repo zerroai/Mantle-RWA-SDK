@@ -27,7 +27,7 @@ export function SDKProvider({ children }: { children: React.ReactNode }) {
 
                 const sdkInstance = new MantleRWASDK({
                     rpcUrl,
-                    walletClient: walletClient ?? undefined,
+                    walletClient: walletClient as any, // Type compatibility between wagmi v3 and SDK
                     contractAddresses: {
                         identityRegistry: CONTRACT_ADDRESSES.IdentityRegistry,
                         complianceRegistry: CONTRACT_ADDRESSES.ComplianceRegistry,
