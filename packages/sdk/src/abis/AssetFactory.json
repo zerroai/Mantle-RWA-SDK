@@ -1,0 +1,377 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_complianceRegistry",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_tokenImplementation",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "inputs": [],
+        "type": "error",
+        "name": "AccessControlBadConfirmation"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "neededRole",
+                "type": "bytes32"
+            }
+        ],
+        "type": "error",
+        "name": "AccessControlUnauthorizedAccount"
+    },
+    {
+        "inputs": [],
+        "type": "error",
+        "name": "FailedDeployment"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "balance",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "needed",
+                "type": "uint256"
+            }
+        ],
+        "type": "error",
+        "name": "InsufficientBalance"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "assetAddress",
+                "type": "address",
+                "indexed": true
+            },
+            {
+                "internalType": "string",
+                "name": "name",
+                "type": "string",
+                "indexed": false
+            },
+            {
+                "internalType": "string",
+                "name": "symbol",
+                "type": "string",
+                "indexed": false
+            },
+            {
+                "internalType": "address",
+                "name": "deployer",
+                "type": "address",
+                "indexed": true
+            }
+        ],
+        "type": "event",
+        "name": "AssetDeployed",
+        "anonymous": false
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newImplementation",
+                "type": "address",
+                "indexed": true
+            }
+        ],
+        "type": "event",
+        "name": "ImplementationUpdated",
+        "anonymous": false
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32",
+                "indexed": true
+            },
+            {
+                "internalType": "bytes32",
+                "name": "previousAdminRole",
+                "type": "bytes32",
+                "indexed": true
+            },
+            {
+                "internalType": "bytes32",
+                "name": "newAdminRole",
+                "type": "bytes32",
+                "indexed": true
+            }
+        ],
+        "type": "event",
+        "name": "RoleAdminChanged",
+        "anonymous": false
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32",
+                "indexed": true
+            },
+            {
+                "internalType": "address",
+                "name": "account",
+                "type": "address",
+                "indexed": true
+            },
+            {
+                "internalType": "address",
+                "name": "sender",
+                "type": "address",
+                "indexed": true
+            }
+        ],
+        "type": "event",
+        "name": "RoleGranted",
+        "anonymous": false
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32",
+                "indexed": true
+            },
+            {
+                "internalType": "address",
+                "name": "account",
+                "type": "address",
+                "indexed": true
+            },
+            {
+                "internalType": "address",
+                "name": "sender",
+                "type": "address",
+                "indexed": true
+            }
+        ],
+        "type": "event",
+        "name": "RoleRevoked",
+        "anonymous": false
+    },
+    {
+        "inputs": [],
+        "stateMutability": "view",
+        "type": "function",
+        "name": "DEFAULT_ADMIN_ROLE",
+        "outputs": [
+            {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+            }
+        ]
+    },
+    {
+        "inputs": [],
+        "stateMutability": "view",
+        "type": "function",
+        "name": "complianceRegistry",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ]
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "symbol",
+                "type": "string"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "complianceRuleId",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "uint256",
+                "name": "initialSupply",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "name": "deployAsset",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ]
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "name": "getRoleAdmin",
+        "outputs": [
+            {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+            }
+        ]
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "name": "grantRole"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "name": "hasRole",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ]
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "address",
+                "name": "callerConfirmation",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "name": "renounceRole"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "name": "revokeRole"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes4",
+                "name": "interfaceId",
+                "type": "bytes4"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "name": "supportsInterface",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ]
+    },
+    {
+        "inputs": [],
+        "stateMutability": "view",
+        "type": "function",
+        "name": "tokenImplementation",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ]
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_newImplementation",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "name": "updateImplementation"
+    }
+]

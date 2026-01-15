@@ -1,0 +1,16 @@
+{
+  "name": "mantle-rwa-monorepo",
+  "private": true,
+  "version": "0.0.1",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:dashboard": "cd apps/dashboard && npm run dev",
+    "build:dashboard": "cd apps/dashboard && npm run build",
+    "test:contracts": "cd packages/contracts && forge test",
+    "build:sdk": "cd packages/sdk && npm run build"
+  }
+}
+

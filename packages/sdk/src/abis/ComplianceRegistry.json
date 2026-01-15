@@ -1,0 +1,361 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_identityRegistry",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "inputs": [],
+        "type": "error",
+        "name": "AccessControlBadConfirmation"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "neededRole",
+                "type": "bytes32"
+            }
+        ],
+        "type": "error",
+        "name": "AccessControlUnauthorizedAccount"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32",
+                "indexed": true
+            },
+            {
+                "internalType": "bytes32",
+                "name": "previousAdminRole",
+                "type": "bytes32",
+                "indexed": true
+            },
+            {
+                "internalType": "bytes32",
+                "name": "newAdminRole",
+                "type": "bytes32",
+                "indexed": true
+            }
+        ],
+        "type": "event",
+        "name": "RoleAdminChanged",
+        "anonymous": false
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32",
+                "indexed": true
+            },
+            {
+                "internalType": "address",
+                "name": "account",
+                "type": "address",
+                "indexed": true
+            },
+            {
+                "internalType": "address",
+                "name": "sender",
+                "type": "address",
+                "indexed": true
+            }
+        ],
+        "type": "event",
+        "name": "RoleGranted",
+        "anonymous": false
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32",
+                "indexed": true
+            },
+            {
+                "internalType": "address",
+                "name": "account",
+                "type": "address",
+                "indexed": true
+            },
+            {
+                "internalType": "address",
+                "name": "sender",
+                "type": "address",
+                "indexed": true
+            }
+        ],
+        "type": "event",
+        "name": "RoleRevoked",
+        "anonymous": false
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "ruleId",
+                "type": "bytes32",
+                "indexed": true
+            },
+            {
+                "internalType": "bool",
+                "name": "requiresAccredited",
+                "type": "bool",
+                "indexed": false
+            },
+            {
+                "internalType": "bool",
+                "name": "requiresKYC",
+                "type": "bool",
+                "indexed": false
+            }
+        ],
+        "type": "event",
+        "name": "RuleUpdated",
+        "anonymous": false
+    },
+    {
+        "inputs": [],
+        "stateMutability": "view",
+        "type": "function",
+        "name": "COMPLIANCE_ADMIN_ROLE",
+        "outputs": [
+            {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+            }
+        ]
+    },
+    {
+        "inputs": [],
+        "stateMutability": "view",
+        "type": "function",
+        "name": "DEFAULT_ADMIN_ROLE",
+        "outputs": [
+            {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+            }
+        ]
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "user",
+                "type": "address"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "ruleId",
+                "type": "bytes32"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "name": "checkCompliance",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ]
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "name": "getRoleAdmin",
+        "outputs": [
+            {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+            }
+        ]
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "name": "grantRole"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "name": "hasRole",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ]
+    },
+    {
+        "inputs": [],
+        "stateMutability": "view",
+        "type": "function",
+        "name": "identityRegistry",
+        "outputs": [
+            {
+                "internalType": "contract IdentityRegistry",
+                "name": "",
+                "type": "address"
+            }
+        ]
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "address",
+                "name": "callerConfirmation",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "name": "renounceRole"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "name": "revokeRole"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "name": "rules",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "requiresAccredited",
+                "type": "bool"
+            },
+            {
+                "internalType": "bool",
+                "name": "requiresKYC",
+                "type": "bool"
+            }
+        ]
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "ruleId",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "bool",
+                "name": "requiresAccredited",
+                "type": "bool"
+            },
+            {
+                "internalType": "bool",
+                "name": "requiresKYC",
+                "type": "bool"
+            },
+            {
+                "internalType": "uint16[]",
+                "name": "restrictedCountries",
+                "type": "uint16[]"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "name": "setRule"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes4",
+                "name": "interfaceId",
+                "type": "bytes4"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "name": "supportsInterface",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ]
+    }
+]
